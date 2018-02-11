@@ -26,6 +26,28 @@ fn fibonacci(num: u32) -> u32 {
     }
 }
 
+fn print_twelve_days_of_christmas_lyrics() {
+    let days = ["first", "second", "third", "fourth", "fifth", "sixth",
+        "seventh", "eighth", "nineth", "tenth", "eleventh", "twelvth"];
+    let gifts = ["A partridge in a pear tree", "Two turtle doves, and", 
+        "Three french hens", "Four colly birds", "Five gold rings",
+        "Six geese a-laying", "Seven swans a-swimming",
+        "Eight maids a-milking", "Nine ladies dancing",
+        "Ten lords a-leaping", "Eleven pipers piping", 
+        "Twelve drummers drumming"];
+
+    println!("");
+    for x in 0..12 {
+        println!("On the {} day of Christmas my true love gave to me", 
+            days[x]);
+        for y in 0..x {
+            println!("{}", gifts[x - y]);
+        }
+        println!("{}", gifts[0]);
+        println!("");
+    }
+}
+
 fn main() {
     let temp_f: f64;     
 
@@ -57,4 +79,6 @@ fn main() {
     }
 
     println!("Element {} in the Fibonacci sequence is {}", fib_start, fibonacci(fib_start));
+
+    print_twelve_days_of_christmas_lyrics();
 }
