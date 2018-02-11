@@ -1,20 +1,30 @@
 
+use std::io;
+
 fn fahrenheit_to_celsius(f: f64) -> f64 {
     (f - 32.0) * 5.0/9.0
 }
 
 fn fibonacci(num: u32) -> u32 {
-    if num == 0 {
+    if num == 0 || num == 1 {
         0
-    } else if num == 1 {
-        1
     } else if num == 2 {
-       1
+        1
+    } else if num == 3 {
+        1
     } else {
-        
-    }
+        let mut num_1 = 1;
+        let mut num_2 = 1;
+        let mut result = 0;
 
-use std::io;
+        for _x in 0..(num - 3) {
+            result = num_1 + num_2;
+            num_2 = num_1;
+            num_1 = result;
+        }
+        result
+    }
+}
 
 fn main() {
     let temp_f: f64;     
@@ -46,6 +56,5 @@ fn main() {
         break;
     }
 
-    println!("The {} element in the Fibonacci sequence is {}", fib_start, fibonacci(fib_start));
-
+    println!("Element {} in the Fibonacci sequence is {}", fib_start, fibonacci(fib_start));
 }
